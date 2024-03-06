@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://dg64dv3cw1eii"]
+
+[ext_resource type="Script" path="res://Scenes/inici.gd" id="1_mpcr8"]
+
+[node name="Inici" type="Node2D"]
+script = ExtResource("1_mpcr8")
+
+[node name="Play" type="Button" parent="."]
+offset_left = 449.0
+offset_top = 39.0
+offset_right = 751.0
+offset_bottom = 123.0
+text = "PLAY"
+
+[node name="Exit" type="Button" parent="."]
+offset_left = 453.0
+offset_top = 155.0
+offset_right = 745.0
+offset_bottom = 238.0
+text = "EXIT"
+
+[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]

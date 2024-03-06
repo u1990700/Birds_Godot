@@ -1,0 +1,93 @@
+[gd_scene load_steps=13 format=3 uid="uid://ciwjp5ydroeal"]
+
+[ext_resource type="Script" path="res://Scenes/ocell.gd" id="1_7gpwc"]
+[ext_resource type="Texture2D" uid="uid://c6gxdt741ooax" path="res://images/bird1.png" id="1_xvtki"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_16eqp"]
+atlas = ExtResource("1_xvtki")
+region = Rect2(0, 0, 341, 299)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_53ohi"]
+atlas = ExtResource("1_xvtki")
+region = Rect2(341, 0, 341, 299)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v24wm"]
+atlas = ExtResource("1_xvtki")
+region = Rect2(682, 0, 341, 299)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mrl8g"]
+atlas = ExtResource("1_xvtki")
+region = Rect2(0, 299, 341, 299)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mte05"]
+atlas = ExtResource("1_xvtki")
+region = Rect2(341, 299, 341, 299)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2lhbq"]
+atlas = ExtResource("1_xvtki")
+region = Rect2(682, 299, 341, 299)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c1t37"]
+atlas = ExtResource("1_xvtki")
+region = Rect2(0, 598, 341, 299)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jge4o"]
+atlas = ExtResource("1_xvtki")
+region = Rect2(341, 598, 341, 299)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k6fib"]
+atlas = ExtResource("1_xvtki")
+region = Rect2(682, 598, 341, 299)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sx6um"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_16eqp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_53ohi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v24wm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mrl8g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mte05")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2lhbq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c1t37")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jge4o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k6fib")
+}],
+"loop": true,
+"name": &"volar",
+"speed": 10.0
+}]
+
+[node name="Ocell" type="Node2D"]
+script = ExtResource("1_7gpwc")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+angular_damp = 70.0
+constant_force = Vector2(500, 500)
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="RigidBody2D"]
+position = Vector2(-4, -4)
+scale = Vector2(0.273412, 0.315424)
+polygon = PackedVector2Array(168.244, 129.984, 149, 78, 158, 18, 175, -7, 159, -43, 129, -64, 88, -87, 56, -101, -59, -95, -108, -32, -155, 18, -167, 49, -137, 50, -143, 76, -111, 69, -80, 88, -21, 113, 36, 140, 87, 144)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="RigidBody2D"]
+position = Vector2(0, -1)
+scale = Vector2(0.213081, 0.242035)
+sprite_frames = SubResource("SpriteFrames_sx6um")
+animation = &"volar"

@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=3 uid="uid://domi3175r8wx0"]
+
+[ext_resource type="Script" path="res://Scenes/escenari.gd" id="1_76nbs"]
+[ext_resource type="Texture2D" uid="uid://cxmhks838g0ou" path="res://images/R.jpg" id="1_hujb8"]
+
+[node name="Escenari" type="Node2D"]
+script = ExtResource("1_76nbs")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 2.0
+offset_top = -1.0
+offset_right = 1149.0
+offset_bottom = 645.0
+
+[node name="Label" type="Label" parent="Control"]
+z_index = 10
+layout_mode = 0
+offset_left = 465.0
+offset_top = 8.0
+offset_right = 573.0
+offset_bottom = 45.0
+text = "Puntuació: 0"
+
+[node name="Timer" type="Timer" parent="Control"]
+one_shot = true
+autostart = true
+
+[node name="BackGround" type="Sprite2D" parent="Control"]
+position = Vector2(553, 370)
+scale = Vector2(0.60918, 0.639236)
+texture = ExtResource("1_hujb8")
+
+[connection signal="timeout" from="Control/Timer" to="." method="_on_timer_timeout"]
