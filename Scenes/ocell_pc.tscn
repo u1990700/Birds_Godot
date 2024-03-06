@@ -1,6 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://v7u8amxw31mn"]
+[gd_scene load_steps=14 format=3 uid="uid://v7u8amxw31mn"]
 
 [ext_resource type="Texture2D" uid="uid://bsc1vu05g5e0c" path="res://images/bird2.png" id="1_fr0oc"]
+[ext_resource type="Script" path="res://Scenes/ocell_pc.gd" id="1_j3lvj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hmljg"]
 atlas = ExtResource("1_fr0oc")
@@ -76,18 +77,23 @@ animations = [{
 "texture": SubResource("AtlasTexture_ngdh7")
 }],
 "loop": true,
-"name": &"default",
+"name": &"volar",
 "speed": 10.0
 }]
 
 [node name="OcellPc" type="Node2D"]
+script = ExtResource("1_j3lvj")
 
 [node name="RigidBody2D" type="RigidBody2D" parent="."]
+angular_damp = 24.875
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RigidBody2D"]
+scale = Vector2(0.535862, 0.48437)
 polygon = PackedVector2Array(-83, 7, -69, -31, -41, -47, 49, -43, 72, -4, 86, 31, 90, 62, 70, 95, 28, 102, -38, 81, -77, 62, -78, 37)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="RigidBody2D"]
+scale = Vector2(0.435667, 0.525143)
 sprite_frames = SubResource("SpriteFrames_hfeyj")
-frame = 5
-frame_progress = 0.0803299
+animation = &"volar"
+
+[connection signal="body_entered" from="RigidBody2D" to="." method="_on_rigid_body_2d_body_entered"]
